@@ -38,8 +38,8 @@
 
 Запаковываем в zip и устанавливаем так:
 
-        adb push module.zip /data/local/tmp
-        adb shell su -c magisk --install-module /data/local/tmp/module.zip
+        adb push wsafiddler.zip /data/local/tmp
+        adb shell su -c magisk --install-module /data/local/tmp/wsafiddler.zip
 
 Включить proxy для WSA
 
