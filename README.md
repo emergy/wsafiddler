@@ -31,6 +31,11 @@
 
 Стягиваем репо, перемещаем <old_hash>.0 в system/etc/security/cacerts
 
+        git clone https://github.com/emergy/wsafiddler.git
+        cd wsafiddler
+        mkdir -p system/etc/security/cacerts
+        cp ../<old_hash>.0 system/etc/security/cacerts/
+
 Запаковываем в zip и устанавливаем так:
 
         adb push module.zip /data/local/tmp
