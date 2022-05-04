@@ -36,10 +36,15 @@
         mkdir -p system/etc/security/cacerts
         cp ../<old_hash>.0 system/etc/security/cacerts/
 
-Запаковываем в zip и устанавливаем так:
+Запаковываем в zip и устанавливаем так (в настройках WSA должен быть включен режим разработчика):
 
+        adb connect localhost:58526
         adb push wsafiddler.zip /data/local/tmp
         adb shell su -c magisk --install-module /data/local/tmp/wsafiddler.zip
+
+Проверить наличие сертификата, можно тут:
+
+        /system/etc/security/cacerts/
 
 Включить proxy для WSA
 
