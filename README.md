@@ -29,6 +29,8 @@
 
         openssl x509 -inform der -in FiddlerRoot.cer -out <old_hash>.0
 
+---
+
 Стягиваем репо, перемещаем <old_hash>.0 в system/etc/security/cacerts
 
         git clone https://github.com/emergy/wsafiddler.git
@@ -36,19 +38,31 @@
         mkdir -p system/etc/security/cacerts
         cp ../<old_hash>.0 system/etc/security/cacerts/
 
+---
+
 Запаковываем в zip и устанавливаем так (в настройках WSA должен быть включен режим разработчика):
 
         adb connect localhost:58526
         adb push wsafiddler.zip /data/local/tmp
         adb shell su -c magisk --install-module /data/local/tmp/wsafiddler.zip
 
+---
+
+Перезапустить WSA
+
+---
+
 Проверить наличие сертификата, можно тут:
 
         /system/etc/security/cacerts/
 
+---
+
 Включить proxy для WSA
 
         adb shell settings put global http_proxy <fiddler_ip>:8888
+
+---
 
 Выключить proxy для WSA
 
