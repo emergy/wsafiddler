@@ -25,18 +25,18 @@
 
 ---
 
-Генерируем pem
+Генерируем pem:
 
         openssl x509 -inform der -in FiddlerRoot.cer -out <old_hash>.0
 
 ---
 
-Стягиваем репо, перемещаем <old_hash>.0 в system/etc/security/cacerts
+Стягиваем репо, перемещаем <old_hash>.0 в system/etc/security/cacerts:
 
         git clone https://github.com/emergy/wsafiddler.git
         cd wsafiddler
         mkdir -p system/etc/security/cacerts
-        cp ../<old_hash>.0 system/etc/security/cacerts/
+        mv ../<old_hash>.0 system/etc/security/cacerts/
 
 ---
 
@@ -58,12 +58,12 @@
 
 ---
 
-Включить proxy для WSA
+Включить proxy для WSA:
 
         adb shell settings put global http_proxy <fiddler_ip>:8888
 
 ---
 
-Выключить proxy для WSA
+Выключить proxy для WSA:
 
         adb shell settings put global http_proxy :0
